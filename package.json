@@ -1,0 +1,19 @@
+{
+  "name": "@metadonors/odoo-jsonrpc",
+  "version": "0.1.1",
+  "description": "Odoo JSONRPC Client ",
+  "main": "index.js",
+  "author": "Fabrizio Arzeni <fabrizio.arzeni@metadonors.it>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "odoo",
+    "jsonrpc"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "jayson": "^2.1.1"
+  }
+}
