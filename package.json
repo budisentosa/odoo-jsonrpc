@@ -1,6 +1,6 @@
 {
   "name": "@metadonors/odoo-jsonrpc",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Odoo JSONRPC Client ",
   "main": "index.js",
   "author": "Fabrizio Arzeni <fabrizio.arzeni@metadonors.it>",
