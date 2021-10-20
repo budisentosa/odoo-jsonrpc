@@ -1,11 +1,41 @@
 {
-  "name": "@metadonors/odoo-jsonrpc",
-  "version": "0.5.0",
+  "_from": "@metadonors/odoo-jsonrpc",
+  "_id": "@metadonors/odoo-jsonrpc@0.5.1",
+  "_inBundle": false,
+  "_integrity": "sha512-ySMqfIV75oSHDHPdrRY20ZZv41GXcA1k5wtJaz4Bwlw0dVKd90qzpY+1r9c7HrbaWl6rKbZjOHF4AoGGGabH5g==",
+  "_location": "/@metadonors/odoo-jsonrpc",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@metadonors/odoo-jsonrpc",
+    "name": "@metadonors/odoo-jsonrpc",
+    "escapedName": "@metadonors%2fodoo-jsonrpc",
+    "scope": "@metadonors",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@metadonors/odoo-jsonrpc/-/odoo-jsonrpc-0.5.1.tgz",
+  "_shasum": "fb5dd9971b234940c0650c8df4d80ebc5a60006a",
+  "_spec": "@metadonors/odoo-jsonrpc",
+  "_where": "C:\\Users\\budis\\Documents\\testNuxt\\nuxt-firebase-9",
+  "author": {
+    "name": "Fabrizio Arzeni",
+    "email": "fabrizio.arzeni@metadonors.it"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "deprecated": false,
   "description": "Odoo JSONRPC Client ",
-  "main": "index.js",
-  "author": "Fabrizio Arzeni <fabrizio.arzeni@metadonors.it>",
-  "scripts": {
-    "test": "jest"
+  "devDependencies": {
+    "jest": "^25.1.0"
   },
   "keywords": [
     "odoo",
@@ -13,10 +43,10 @@
     "jsonrpc"
   ],
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.18.0"
+  "main": "index.js",
+  "name": "@metadonors/odoo-jsonrpc",
+  "scripts": {
+    "test": "jest"
   },
-  "devDependencies": {
-    "jest": "^25.1.0"
-  }
+  "version": "0.5.1"
 }

@@ -13,36 +13,21 @@ class OdooRPC {
     this.host = config.host
     this.port = config.port || 80
     this.database = config.database
-    this.persist = config.persist
-    this.storate = config.storage || localStorage
     this.username = null
     this.password = null
     this.uid = null
     this.sid = null
     this.cookie = null
     this.context = null
-
-    if (config.persist == "localStorage") {
-      const data = JSON.parse(this.storage.getItem("odoo-data"))
-      if (data) {
-        this.uid = data.uid
-        this.cookie = data.cookie
-        this.context = data.context
-        this.username = data.username
-        this.password = data.password
-        this.partnerId = data.partnerId
-      }
-    }
   }
 
   logout() {
     this.uid = null
-    this.sessionId = null
+    this.partnerId = null
+    this.cookie = null
     this.context = null
-
-    if (this.persist == "localStorage") {
-      this.storage.setItem("odoo-data", JSON.stringify(this))
-    }
+    this.username = null
+    this.password = null
   }
 
   login(username, password) {
@@ -55,8 +40,8 @@ class OdooRPC {
 
       var json = JSON.stringify({ params: params })
       var options = {
-        url: `${this.host}:${this.port}/web/session/authenticate`,
-        method: 'post',
+        url: `${this.host}/web/session/authenticate`,
+        method: "post",
         data: json,
         withCredentials: true,
         headers: {
@@ -71,14 +56,10 @@ class OdooRPC {
           } else {
             this.uid = response.data.result.uid
             this.partnerId = response.data.result.partner_id
-            this.cookie = response.headers['set-cookie']
+            this.cookie = response.headers["set-cookie"]
             this.context = response.data.result.user_context
             this.username = username
             this.password = password
-
-            if (this.persist == "localStorage") {
-              this.storage.setItem("odoo-data", JSON.stringify(this))
-            }
 
             resolve(response.data.result)
           }
@@ -91,8 +72,7 @@ class OdooRPC {
     return new OdooResource(this, model)
   }
 
-  _request(path, params) 
-  {
+  _request(path, params) {
     params = params || { args: [] }
     path = path || "/"
 
@@ -106,21 +86,21 @@ class OdooRPC {
     }
 
     var options = {
-      url: `${this.host}:${this.port}/jsonrpc`,
+      url: `${this.host}/jsonrpc`,
       method: "post",
       headers: {
         "Content-Type": "application/json",
         "accept-encoding": "gzip, deflate",
-        "cookie": `${this.cookie}`,
-        "Accept": "application/json"
+        cookie: `${this.cookie}`,
+        Accept: "application/json"
       },
-      data,
+      data
     }
 
     return new Promise((resolve, reject) => {
       axios(options)
         .then(response => {
-          if(response.data.error) reject(response.data.error)
+          if (response.data.error) reject(response.data.error)
           resolve(response.data.result)
         })
         .catch(reject)
